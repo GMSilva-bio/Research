@@ -1,6 +1,6 @@
-Python script that reads a FASTA file containing nucleotide sequences of human genes and their respective identifiers (accepts UniProt or ENSEMBL), then applies point mutations to the sequences according to COSMIC Mutation Data, generating a new sequence and identifier for each mutant. 
+	Python script that reads a FASTA file containing nucleotide sequences of human genes and their respective identifiers (accepts UniProt or ENSEMBL), then applies point mutations to the sequences according to COSMIC Mutation Data, generating a new sequence and identifier for each mutant. 
 
-Usage:
+	Usage:
     ./mutation_missense.py MUTATION_FILE [--basesize=BASESIZE] [--datafile=DATAFILE] [--output=OUTPUT]
         [--encoding=ENCODING] [-v --verbose] [-h --help]
     MUTATION_FILE
