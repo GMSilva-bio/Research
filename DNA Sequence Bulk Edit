@@ -4,20 +4,20 @@ import csv
 import sys
 from docopt import docopt
 
-__doc__ = """Applies the given mutation file to the gene database.
+__doc__ = """Applies the given mutation file to each applicable gene in the database and creates new entry for each mutant.
 Usage:
     ./mutation_missense.py MUTATION_FILE [--basesize=BASESIZE] [--datafile=DATAFILE] [--output=OUTPUT]
         [--encoding=ENCODING] [-v --verbose] [-h --help]
     MUTATION_FILE
         The filename for the file containing the mutations to be applied.
         Must be in the format: "NAME;CODE;MUTATION"
-        Mutations can be in the formats (where ** is the position, A and G are proteins):
+        Mutations can be in the formats (where ** is the position, A and G are example nucleotides):
         - **A>G
         - c.**delA
         - ns**A>G
         - c.**_**insAAGG
     --basesize=BASESIZE
-        The number of bases from each gene to be obtained, mutated and exported. [default: 90]
+        The number of bases from each gene to be obtained and exported [default: 90]
     --datafile=DATAFILE
         The name of the file that contains all genes. [default: All_COSMIC_Genes.fasta]
     --encoding=ENCODING
@@ -59,9 +59,9 @@ def transform(base, action):
     :param base: The string containing the full or partial sequence.
     :param actions: A string containing an action represents them.
     An example of an action format: 10A>T
-    This means that the protein A in position 10 will be transformed to T.
+    This means that the base A in position 10 will be transformed to T.
     Returns the transformed base sequence.
-    Raises InvalidActionFormat if action is not in correct format and MismatchAction if protein in given position
+    Raises InvalidActionFormat if action is not in correct format and MismatchAction if base in given position
     is different than specified by action.
     """
     assert isinstance(base, str) and isinstance(action, str)
